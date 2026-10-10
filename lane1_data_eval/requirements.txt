@@ -1,0 +1,8 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+scipy
+rank_bm25
+tabulate
+pytest
