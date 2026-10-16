@@ -9,6 +9,8 @@ Interface contract:
 '''
 
 import re
+import sys
+from pathlib import Path
  
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -102,8 +104,41 @@ def verify_batch(claims, evidences, batch_size=32):
 def verify(claim: str, evidence: str) -> dict:
     """Return {"label": "SUPPORTS"|"REFUTES"|"NOT ENOUGH INFO", "confidence": float}."""
     return verify_batch([claim], [evidence])[0]
- 
- 
+
+# Evidence retrieval and combination into one string for verification
+
+def _import_retrieval():
+    try:
+        from retrieval import retrieve_with_scores
+    except ImportError:
+        for p in Path(__file__).resolve().parent.parent.glob("*/retrieval.py"):
+            sys.path.insert(0, str(p.parent))
+        from retrieval import retrieve_with_scores
+    return retrieve_with_scores
+
+def retrieve_evidence(claim: str, k: int = 5, sep: str = EVIDENCE_SEP) -> dict:
+    retrieve_with_scores = _import_retrieval()
+    hits = retrieve_with_scores(claim, k)
+    sentences = [clean_fever_text(h[2]) for h in hits]
+    return {
+        "evidence": sep.join(s for s in sentences if s),
+        "evidence_ids": [h[0] for h in hits],
+    }
+
+def verify_with_retrieval(claim: str, k: int = 5, sep: str = EVIDENCE_SEP) -> dict:
+    """
+    Retrieve top-k evidence, join it, verify the claim against it.
+    Returns the usual {"label", "confidence"} plus "evidence" and "evidence_ids".
+    """
+    ev = retrieve_evidence(claim, k, sep)
+    return {**verify(claim, ev["evidence"]), **ev}
+
+def verify_with_retrieval_batch(claims, k: int = 5, sep: str = EVIDENCE_SEP) -> list:
+    """Batch version: one retrieval per claim, then one batched NLI pass."""
+    evs = [retrieve_evidence(c, k, sep) for c in claims]
+    preds = verify_batch(list(claims), [e["evidence"] for e in evs])
+    return [{**p, **e} for p, e in zip(preds, evs)]
+
 if __name__ == "__main__":
     _load()
     print("id2label:", _model.config.id2label)
