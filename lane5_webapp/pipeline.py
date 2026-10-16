@@ -219,3 +219,17 @@ def explain_label(label: str) -> str:
             "or contradicting relationship in this sentence."
         ),
     }[label]
+
+
+def claim_level_prediction(results):
+    """Use Lane 4's evaluated Top-1 aggregation.
+
+    Reuses existing evidence-level NLI predictions.
+    Does not rerun DeBERTa.
+    """
+    from lane4_verification.claim_verdict import aggregate_predictions
+
+    return aggregate_predictions(
+        results,
+        strategy="top1",
+    )
