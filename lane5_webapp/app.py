@@ -56,10 +56,8 @@ def load_retrieval_index():
 
 def retrieve_evidence(claim: str, k: int = 5):
     """
-    Retrieve evidence using BM25.
-
-    Exclude zero-score matches because these provide
-    no positive BM25 relevance signal.
+    Retrieve evidence with BM25, excluding
+    candidates with no positive relevance score.
     """
     load_retrieval_index()
 
@@ -69,14 +67,11 @@ def retrieve_evidence(claim: str, k: int = 5):
         method="bm25",
     )
 
-    relevant_results = [
+    return [
         (evidence_id, score, text)
         for evidence_id, score, text in results
         if score > 0
     ]
-
-    return relevant_results
-
 
 
 def classify_evidence(claim: str, results: list):
@@ -204,6 +199,40 @@ if st.button("Check Claim", type="primary"):
                     label = prediction["label"]
                     if label in counts:
                         counts[label] += 1
+                
+                # Detect evidence-level disagreement
+                has_support = counts["SUPPORTS"] > 0
+                has_refute = counts["REFUTES"] > 0
+
+                if has_support and has_refute:
+                     st.warning(
+                        "⚠️ Conflicting evidence detected: Some retrieved "
+                        "sentences support the claim, while others contradict it. "
+                        "The system cannot establish which statements are more "
+                        "trustworthy from NLI predictions alone."
+                    )
+
+                elif has_support:
+                    st.info(
+                        "The retrieved evidence includes statements that "
+                        "the model considers supportive of the claim. "
+                        "This is not yet a final claim-level verdict."
+                    )
+
+                elif has_refute:
+                    st.info(
+                        "The retrieved evidence includes statements that "
+                        "the model considers contradictory to the claim. "
+                        "This is not yet a final claim-level verdict."
+                    )
+
+                else:
+                    st.info(
+                        "The retrieved sentences do not provide a clear "
+                        "supporting or contradicting relationship. "
+                        "The claim remains unverified using these results."
+                    )
+
 
                 col1, col2, col3 = st.columns(3)
 
@@ -237,9 +266,7 @@ if st.button("Check Claim", type="primary"):
                     label = prediction["label"]
                     confidence = float(prediction["confidence"])
 
-                    with st.container(border=True):
-
-                        st.markdown(f"### Evidence {rank}")
+                    with st.expander(f"Evidence {rank} — {prediction['label']}",expanded=(rank == 1),):
 
                         if label == "SUPPORTS":
                             st.success("SUPPORTS")
