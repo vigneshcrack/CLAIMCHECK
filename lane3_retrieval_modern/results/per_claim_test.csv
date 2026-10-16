@@ -1,0 +1,347 @@
+claim_id,claim,label,gold_evidence_id,bm25_rank,bm25_top1,sbert_rank,sbert_top1,sbert_rerank_rank,sbert_rerank_top1,bm25_rerank_rank,bm25_rerank_top1
+test_207543,Mel B released a song on Virgin Records in 2007 .,SUPPORTS,ev_97,1.0,ev_97,1.0,ev_97,1.0,ev_97,1.0,ev_97
+test_90809,Sean Penn is only ever a stage actor .,REFUTES,ev_203,,ev_205,2.0,ev_205,2.0,ev_205,,ev_205
+test_134135,Meteora is not an album by Linkin Park .,REFUTES,ev_376,1.0,ev_376,2.0,ev_377,2.0,ev_377,2.0,ev_377
+test_85350,"Andrew Kevin Walker was born on Monday August 14 , 1964 .",SUPPORTS,ev_44,2.0,ev_43,1.0,ev_44,1.0,ev_44,1.0,ev_44
+test_9849,Michigan is not a U.S. state .,REFUTES,ev_384,3.0,ev_627,1.0,ev_384,1.0,ev_384,1.0,ev_384
+test_157685,"Bessie Smith was married on April 15 , 1894 .",REFUTES,ev_79,2.0,ev_78,2.0,ev_78,2.0,ev_78,2.0,ev_78
+test_73961,Rachel Green is a real life character .,REFUTES,ev_428,1.0,ev_428,1.0,ev_428,1.0,ev_428,1.0,ev_428
+test_137334,Fox 2000 Pictures released the film Soul Food .,SUPPORTS,ev_485,2.0,ev_483,2.0,ev_483,1.0,ev_485,1.0,ev_485
+test_216599,Calcaneal spurs are unable to be detected in any situation .,REFUTES,ev_105,2.0,ev_106,2.0,ev_106,2.0,ev_106,2.0,ev_106
+test_1188,Pearl Jam is a type of dressing .,REFUTES,ev_408,2.0,ev_407,2.0,ev_407,2.0,ev_407,2.0,ev_407
+test_175645,Fabian Nicieza has yet to work on a comic book .,REFUTES,ev_194,2.0,ev_195,1.0,ev_194,1.0,ev_194,1.0,ev_194
+test_166647,Anne Rice was born in Fort Lauderdale .,REFUTES,ev_90,6.0,ev_85,2.0,ev_85,5.0,ev_85,5.0,ev_85
+test_121562,You Belong with Me has yet to be performed live .,REFUTES,ev_588,1.0,ev_588,1.0,ev_588,1.0,ev_588,1.0,ev_588
+test_22435,The Faroe Islands did not exist in 1035 .,REFUTES,ev_80,4.0,ev_530,3.0,ev_530,1.0,ev_80,1.0,ev_80
+test_204020,Down with Love is only a book .,REFUTES,ev_163,2.0,ev_161,3.0,ev_162,3.0,ev_162,3.0,ev_162
+test_34766,Duff McKagan writes sometimes .,SUPPORTS,ev_287,1.0,ev_287,1.0,ev_287,1.0,ev_287,1.0,ev_287
+test_64561,Martin Van Buren only served as senator .,REFUTES,ev_366,2.0,ev_365,2.0,ev_365,2.0,ev_365,2.0,ev_365
+test_72358,Ripon College is in hell .,REFUTES,ev_432,2.0,ev_433,2.0,ev_433,2.0,ev_433,2.0,ev_433
+test_203701,Poseidon grossed less than $ 1 million at the worldwide box office .,REFUTES,ev_416,2.0,ev_415,1.0,ev_416,2.0,ev_415,2.0,ev_415
+test_132134,Noah Cyrus is a younger sister of Macy Grey .,REFUTES,ev_465,2.0,ev_464,2.0,ev_464,2.0,ev_464,2.0,ev_464
+test_177143,Invasion literature had little impact on popular perceptions in Britain .,REFUTES,ev_573,1.0,ev_573,4.0,ev_574,1.0,ev_573,1.0,ev_573
+test_89891,Damon Albarn 's debut album was released in 2011 .,REFUTES,ev_254,,ev_302,2.0,ev_253,2.0,ev_253,2.0,ev_253
+test_97739,Tool is an artist .,SUPPORTS,ev_599,2.0,ev_598,1.0,ev_599,1.0,ev_599,1.0,ev_599
+test_208150,Easy A is directed by Bert V. Royal .,REFUTES,ev_180,2.0,ev_179,1.0,ev_180,2.0,ev_179,2.0,ev_179
+test_160551,Kesha has a full name .,SUPPORTS,ev_345,2.0,ev_344,2.0,ev_344,2.0,ev_344,2.0,ev_344
+test_26690,In the End was positively reviewed .,SUPPORTS,ev_641,1.0,ev_641,1.0,ev_641,1.0,ev_641,1.0,ev_641
+test_208413,Excuse My French is the debut album of a hip hop recording artist .,SUPPORTS,ev_189,1.0,ev_189,1.0,ev_189,1.0,ev_189,1.0,ev_189
+test_46065,The NAACP Image Award for Outstanding Supporting Actor in a Drama Series was last given in 1995 .,REFUTES,ev_550,4.0,ev_551,4.0,ev_551,2.0,ev_551,2.0,ev_551
+test_147493,T2 Trainspotting is set in and around a city .,SUPPORTS,ev_496,2.0,ev_495,2.0,ev_494,2.0,ev_497,2.0,ev_497
+test_94358,Gal Gadot was ranked as the fifth highest earning actress/models in Israel .,REFUTES,ev_279,2.0,ev_278,2.0,ev_278,2.0,ev_278,2.0,ev_278
+test_91313,Ron Weasley is part of the Harry Potter series as the eponymous wizard 's best friend .,SUPPORTS,ev_256,1.0,ev_256,1.0,ev_256,1.0,ev_256,1.0,ev_256
+test_39405,Lou Gehrig was a baseball player who defended the area near the first base .,SUPPORTS,ev_244,1.0,ev_244,2.0,ev_245,1.0,ev_244,1.0,ev_244
+test_63686,Mary of Teck 's son did not marry an American socialite .,REFUTES,ev_23,1.0,ev_23,,ev_228,1.0,ev_23,1.0,ev_23
+test_194469,Tilda Swinton is only Scottish .,REFUTES,ev_333,2.0,ev_334,2.0,ev_334,2.0,ev_334,2.0,ev_334
+test_113357,A Floppy disk is lined with turnips .,REFUTES,ev_2,3.0,ev_3,2.0,ev_3,2.0,ev_3,2.0,ev_3
+test_46271,"Prescott , Arizona is in northern Yavapai County .",SUPPORTS,ev_418,1.0,ev_418,1.0,ev_418,1.0,ev_418,1.0,ev_418
+test_55658,James VI and I was a major advocate of a single parliament for Scotland and England .,SUPPORTS,ev_234,1.0,ev_234,1.0,ev_234,1.0,ev_234,1.0,ev_234
+test_71959,Jennifer Lopez made a single .,SUPPORTS,ev_471,,ev_473,8.0,ev_472,2.0,ev_457,2.0,ev_457
+test_49706,Blue Jasmine has Sally Hawkins acting in it .,SUPPORTS,ev_563,2.0,ev_561,2.0,ev_561,1.0,ev_563,1.0,ev_563
+test_150654,The Quiet is only a television show .,REFUTES,ev_544,2.0,ev_543,2.0,ev_543,2.0,ev_543,2.0,ev_543
+test_185287,Bradley Fuller refuses to be a filmmaker .,REFUTES,ev_92,2.0,ev_93,2.0,ev_93,2.0,ev_93,2.0,ev_93
+test_25717,Alex Jones is apolitical .,REFUTES,ev_37,3.0,ev_36,1.0,ev_37,1.0,ev_37,1.0,ev_37
+test_148661,Aerobic exercise is good for heart health .,SUPPORTS,ev_193,1.0,ev_193,2.0,ev_190,2.0,ev_191,2.0,ev_191
+test_131422,Bones is a cuisine .,REFUTES,ev_83,2.0,ev_84,2.0,ev_84,2.0,ev_84,2.0,ev_84
+test_200382,Tom DeLonge did n't finish middle school .,REFUTES,ev_219,,ev_26,2.0,ev_26,4.0,ev_26,2.0,ev_26
+test_4863,Janelle Monáe 's full name is Janelle Monáe Robinson .,SUPPORTS,ev_320,1.0,ev_320,1.0,ev_320,1.0,ev_320,1.0,ev_320
+test_111769,Basildon is far away from England .,REFUTES,ev_71,1.0,ev_71,1.0,ev_71,1.0,ev_71,1.0,ev_71
+test_125695,Creedence Clearwater Revival was a string quartet .,REFUTES,ev_127,2.0,ev_128,2.0,ev_128,2.0,ev_128,2.0,ev_128
+test_218475,The Hanford Site is unable to host the Pacific Northwest National Laboratory .,REFUTES,ev_76,2.0,ev_77,2.0,ev_77,2.0,ev_77,2.0,ev_77
+test_166506,Jason Katims has made no contributions to Roswell .,REFUTES,ev_435,1.0,ev_435,1.0,ev_435,1.0,ev_435,1.0,ev_435
+test_18065,Colombiana was produced by Olivier Megaton .,REFUTES,ev_121,3.0,ev_123,2.0,ev_122,2.0,ev_122,2.0,ev_122
+test_3682,English people are disconnected from the Jutes and Frisians .,REFUTES,ev_262,1.0,ev_262,2.0,ev_261,2.0,ev_261,2.0,ev_261
+test_106296,Tim McGraw acted in The Blind Side .,SUPPORTS,ev_373,2.0,ev_372,1.0,ev_373,1.0,ev_373,1.0,ev_373
+test_217680,The Pelican Brief is based solely on a television series .,REFUTES,ev_541,2.0,ev_542,2.0,ev_542,2.0,ev_542,2.0,ev_542
+test_217212,A monk only avoids practicing religious asceticism .,REFUTES,ev_8,2.0,ev_7,2.0,ev_7,2.0,ev_7,2.0,ev_7
+test_82509,Kelly Preston starred in the film Broken Bridges .,SUPPORTS,ev_455,1.0,ev_455,1.0,ev_455,1.0,ev_455,1.0,ev_455
+test_104386,Tenacious D started in 1997 .,REFUTES,ev_503,3.0,ev_504,2.0,ev_504,2.0,ev_504,2.0,ev_504
+test_27040,Soyuz was part of a space program .,SUPPORTS,ev_486,1.0,ev_486,1.0,ev_486,1.0,ev_486,1.0,ev_486
+test_198216,Saturn is the second-largest planet in the Solar System .,SUPPORTS,ev_440,1.0,ev_440,2.0,ev_438,1.0,ev_440,1.0,ev_440
+test_125513,The dress did not inspire hashtags .,REFUTES,ev_292,2.0,ev_558,2.0,ev_558,2.0,ev_558,2.0,ev_558
+test_187000,Bermuda Triangle is in the western part of the Himalayas .,REFUTES,ev_514,2.0,ev_513,2.0,ev_513,2.0,ev_513,2.0,ev_513
+test_1831,DNA is a single .,REFUTES,ev_132,2.0,ev_516,1.0,ev_132,2.0,ev_516,2.0,ev_516
+test_41419,Liam Neeson has been nominated for a British Academy of Film and Television Arts award .,SUPPORTS,ev_220,4.0,ev_565,1.0,ev_220,1.0,ev_220,1.0,ev_220
+test_69562,Kellogg 's products are marketed in only one country .,REFUTES,ev_335,1.0,ev_335,2.0,ev_336,2.0,ev_336,2.0,ev_336
+test_124540,Francis I of France was a king .,SUPPORTS,ev_208,1.0,ev_208,1.0,ev_208,1.0,ev_208,1.0,ev_208
+test_183627,Finding Dory was directed by someone .,SUPPORTS,ev_152,1.0,ev_152,2.0,ev_150,5.0,ev_150,3.0,ev_308
+test_123051,T2 Trainspotting is a 2004 British comedy drama film .,REFUTES,ev_496,2.0,ev_494,2.0,ev_494,3.0,ev_494,3.0,ev_494
+test_225236,Danielle Cormack is an actress .,SUPPORTS,ev_141,2.0,ev_142,2.0,ev_142,2.0,ev_142,2.0,ev_142
+test_204443,Brad Wilk helped co-found Rage in 1962 .,REFUTES,ev_625,3.0,ev_624,2.0,ev_624,2.0,ev_624,2.0,ev_624
+test_41665,"There are not rumors that Augustus ' wife , Livia , poisoned him .",REFUTES,ev_232,2.0,ev_233,2.0,ev_233,2.0,ev_233,2.0,ev_233
+test_172478,Matteo Renzi is German .,REFUTES,ev_368,2.0,ev_367,2.0,ev_367,2.0,ev_367,2.0,ev_367
+test_71986,Steve Wozniak was born after the Apple II came out .,REFUTES,ev_231,2.0,ev_30,2.0,ev_30,2.0,ev_30,2.0,ev_30
+test_203384,Goosebumps ( film ) is penned by Darren Lemke .,SUPPORTS,ev_308,1.0,ev_308,1.0,ev_308,1.0,ev_308,1.0,ev_308
+test_88251,Yale University has had few notable alumni .,REFUTES,ev_627,2.0,ev_626,3.0,ev_626,2.0,ev_628,2.0,ev_628
+test_39437,Taran Killam is an American writer .,SUPPORTS,ev_499,1.0,ev_499,1.0,ev_499,1.0,ev_499,1.0,ev_499
+test_141344,Sandra Bullock was an executive producer of George Lopez .,SUPPORTS,ev_472,1.0,ev_472,2.0,ev_473,1.0,ev_472,1.0,ev_472
+test_130920,"Bruce Shand was born on September 22nd , 1917 .",REFUTES,ev_356,2.0,ev_357,1.0,ev_356,2.0,ev_357,2.0,ev_357
+test_59617,Crystal Kay was incapable of covering the song Rhythm Nation .,REFUTES,ev_297,1.0,ev_297,,ev_298,2.0,ev_298,2.0,ev_298
+test_63038,Caroline Kennedy is American .,SUPPORTS,ev_112,1.0,ev_112,1.0,ev_112,1.0,ev_112,1.0,ev_112
+test_51097,Stephen Hillenburg was fascinated with the ocean as a child .,SUPPORTS,ev_87,1.0,ev_87,1.0,ev_87,1.0,ev_87,1.0,ev_87
+test_111897,Telemundo is a English-language television network .,REFUTES,ev_501,2.0,ev_500,1.0,ev_501,2.0,ev_500,2.0,ev_500
+test_118091,Moonlight 's filming began in 1815 .,REFUTES,ev_202,3.0,ev_200,3.0,ev_200,2.0,ev_200,2.0,ev_200
+test_145446,Topman has clothing outlets in six Irish cities and towns .,SUPPORTS,ev_10,2.0,ev_9,1.0,ev_10,1.0,ev_10,1.0,ev_10
+test_56809,The Washington Wizards lost the division title in 2017 .,REFUTES,ev_593,1.0,ev_593,2.0,ev_592,1.0,ev_593,1.0,ev_593
+test_41703,The Gifted is Swedish .,REFUTES,ev_534,3.0,ev_535,6.0,ev_535,3.0,ev_535,3.0,ev_535
+test_195058,"In 1930 , Albert S. Ruddy is born .",SUPPORTS,ev_32,1.0,ev_32,1.0,ev_32,1.0,ev_32,1.0,ev_32
+test_27777,The Colosseum is in the United States .,REFUTES,ev_521,,ev_336,2.0,ev_520,2.0,ev_520,,ev_72
+test_32679,Duane Chapman 's nickname is `` Dog . ``,SUPPORTS,ev_167,1.0,ev_167,1.0,ev_167,1.0,ev_167,1.0,ev_167
+test_157576,Martin Van Buren refused to be Secretary of State .,REFUTES,ev_6,3.0,ev_366,,ev_218,4.0,ev_366,4.0,ev_366
+test_139037,Star Trek : Discovery is a series .,SUPPORTS,ev_490,2.0,ev_491,1.0,ev_490,1.0,ev_490,1.0,ev_490
+test_153303,EA Black Box was a picture game developer .,SUPPORTS,ev_173,1.0,ev_173,2.0,ev_174,1.0,ev_173,1.0,ev_173
+test_129441,Saxony is in Ireland .,REFUTES,ev_531,2.0,ev_532,2.0,ev_532,2.0,ev_532,2.0,ev_532
+test_154809,Tenacious D started in Texas .,REFUTES,ev_503,2.0,ev_502,3.0,ev_502,2.0,ev_502,2.0,ev_502
+test_130717,The Dark Tower is a fantasy film .,SUPPORTS,ev_525,1.0,ev_525,1.0,ev_525,1.0,ev_525,1.0,ev_525
+test_140691,Vietnam is a place .,SUPPORTS,ev_620,1.0,ev_620,1.0,ev_620,1.0,ev_620,1.0,ev_620
+test_1481,EA Black Box was founded in 1999 .,REFUTES,ev_173,2.0,ev_174,2.0,ev_174,2.0,ev_174,2.0,ev_174
+test_6810,The Hundred Years ' War includes the Edwardian Era War and was the first phase in the war .,SUPPORTS,ev_259,2.0,ev_260,1.0,ev_259,1.0,ev_259,1.0,ev_259
+test_197386,Simón Bolívar was born in 1783 .,SUPPORTS,ev_478,2.0,ev_479,2.0,ev_479,1.0,ev_478,1.0,ev_478
+test_55874,The Bloods are identified by the blue color worn by their members .,REFUTES,ev_591,2.0,ev_590,2.0,ev_590,2.0,ev_590,2.0,ev_590
+test_33270,Blue Jasmine takes place in Boston only .,REFUTES,ev_563,,ev_158,4.0,ev_562,,ev_562,,ev_562
+test_32687,Halsey did not sign her first recording contract in 2014 .,REFUTES,ev_280,1.0,ev_280,2.0,ev_470,1.0,ev_280,1.0,ev_280
+test_89875,Justin Chatwin did not perform in Doctor Who .,REFUTES,ev_283,1.0,ev_283,3.0,ev_284,2.0,ev_284,2.0,ev_284
+test_40351,Brazzers is a company .,SUPPORTS,ev_95,1.0,ev_95,1.0,ev_95,1.0,ev_95,1.0,ev_95
+test_166634,Anne Rice was born in Japan .,REFUTES,ev_90,6.0,ev_86,2.0,ev_86,5.0,ev_86,5.0,ev_86
+test_26444,Paramore is not American .,REFUTES,ev_405,1.0,ev_405,1.0,ev_405,2.0,ev_404,2.0,ev_404
+test_38125,The Armenian Genocide was the killing of Armenians who were mostly Ottoman natives .,SUPPORTS,ev_508,1.0,ev_508,1.0,ev_508,1.0,ev_508,1.0,ev_508
+test_151529,José Ferrer was a director .,SUPPORTS,ev_329,1.0,ev_329,1.0,ev_329,1.0,ev_329,1.0,ev_329
+test_43608,Magic Johnson was a tap dancer .,REFUTES,ev_177,2.0,ev_178,2.0,ev_178,2.0,ev_178,2.0,ev_178
+test_179289,Tylenol is advertised for increasing pain .,REFUTES,ev_604,2.0,ev_605,2.0,ev_605,2.0,ev_605,2.0,ev_605
+test_165664,Tom Baker is incapable of getting involved with narrating video games .,REFUTES,ev_288,1.0,ev_288,1.0,ev_288,2.0,ev_289,2.0,ev_289
+test_115185,Qui-Gon Jinn is a fictional person in the Star Wars franchise .,SUPPORTS,ev_427,1.0,ev_427,1.0,ev_427,1.0,ev_427,1.0,ev_427
+test_70695,"Jackpot had 1150 screens release in India on December 13 , 2013 .",SUPPORTS,ev_559,1.0,ev_559,1.0,ev_559,1.0,ev_559,1.0,ev_559
+test_86568,In the End was the only song written by Linkin Park .,REFUTES,ev_302,,ev_376,,ev_641,10.0,ev_305,,ev_305
+test_111717,A.J . Styles never won a WWE Championship .,REFUTES,ev_25,2.0,ev_27,2.0,ev_27,2.0,ev_27,2.0,ev_27
+test_186590,In 1971 Asylum Records the American record label was founded by David Geffen and his partner Elliot Roberts .,SUPPORTS,ev_61,1.0,ev_61,1.0,ev_61,1.0,ev_61,1.0,ev_61
+test_136909,Colombiana is a French sandwich .,REFUTES,ev_121,3.0,ev_124,4.0,ev_124,4.0,ev_124,4.0,ev_124
+test_24264,Exercise temporarily increases the heart rate .,SUPPORTS,ev_193,2.0,ev_192,1.0,ev_193,1.0,ev_193,1.0,ev_193
+test_76433,The Africa Cup of Nations is the football championship of Asia .,REFUTES,ev_505,2.0,ev_506,2.0,ev_506,2.0,ev_506,2.0,ev_506
+test_38549,Stephen Colbert is dissociated from The Late Show with Stephen Colbert .,REFUTES,ev_116,1.0,ev_116,2.0,ev_117,2.0,ev_117,2.0,ev_117
+test_3518,Exercise is bad for heart health .,REFUTES,ev_193,2.0,ev_190,3.0,ev_190,3.0,ev_190,3.0,ev_190
+test_64721,Aristotle spent time in Athens .,SUPPORTS,ev_65,6.0,ev_66,1.0,ev_65,1.0,ev_65,1.0,ev_65
+test_88383,Carlos Santana is a comedian .,REFUTES,ev_109,3.0,ev_108,2.0,ev_108,3.0,ev_108,3.0,ev_108
+test_46970,Rachel Green was played by Courtney Cox .,REFUTES,ev_414,,ev_428,7.0,ev_428,8.0,ev_413,,ev_413
+test_177185,Dub music grew out of R & B .,REFUTES,ev_169,2.0,ev_168,2.0,ev_168,2.0,ev_168,2.0,ev_168
+test_198221,Saturn is larger than Jupiter .,REFUTES,ev_440,3.0,ev_438,3.0,ev_438,3.0,ev_438,3.0,ev_438
+test_157183,Juventus F.C . has long worn a black-and-white-striped home uniform .,SUPPORTS,ev_554,1.0,ev_554,1.0,ev_554,1.0,ev_554,1.0,ev_554
+test_53330,Trollhunters is computer-animated .,SUPPORTS,ev_600,1.0,ev_600,2.0,ev_601,1.0,ev_600,1.0,ev_600
+test_185413,CHiPs is an American romance film .,REFUTES,ev_101,2.0,ev_102,2.0,ev_102,2.0,ev_102,2.0,ev_102
+test_223343,2015 was the year when the principal photography of The Disaster Aritst ( film ) started .,SUPPORTS,ev_421,1.0,ev_421,1.0,ev_421,1.0,ev_421,1.0,ev_421
+test_201090,Marcus Bentley is a broadcaster .,SUPPORTS,ev_358,1.0,ev_358,1.0,ev_358,1.0,ev_358,1.0,ev_358
+test_172771,The Beach 's director was Danny Boyle .,SUPPORTS,ev_511,1.0,ev_511,1.0,ev_511,1.0,ev_511,1.0,ev_511
+test_64196,Men in Black II is a 1992 film .,REFUTES,ev_375,2.0,ev_374,2.0,ev_374,2.0,ev_374,2.0,ev_374
+test_168529,Rick Yune was on a series that cancelled on December 12 .,SUPPORTS,ev_239,1.0,ev_239,1.0,ev_239,1.0,ev_239,1.0,ev_239
+test_68084,Wales ' population changed .,SUPPORTS,ev_68,1.0,ev_68,2.0,ev_67,1.0,ev_68,1.0,ev_68
+test_131295,Tatum O'Neal spent her life single .,REFUTES,ev_461,,ev_271,6.0,ev_457,7.0,ev_271,,ev_271
+test_7336,Lizzy Caplan is incapable of appearing in multiple television shows .,REFUTES,ev_107,2.0,ev_353,4.0,ev_353,2.0,ev_353,2.0,ev_353
+test_93412,Paul Nicholls played Sam Casey in Law & Order : UK .,SUPPORTS,ev_224,1.0,ev_224,1.0,ev_224,1.0,ev_224,1.0,ev_224
+test_167448,Cadet Kelly failed to be released .,REFUTES,ev_103,2.0,ev_104,4.0,ev_104,2.0,ev_104,2.0,ev_104
+test_46475,DreamWorks Animation produced Trollhunters .,SUPPORTS,ev_600,1.0,ev_600,2.0,ev_601,1.0,ev_600,1.0,ev_600
+test_124088,Daggering is a form of Jamaican dance .,SUPPORTS,ev_137,2.0,ev_136,1.0,ev_137,1.0,ev_137,1.0,ev_137
+test_133169,100 percent of the University of Mississippi 's students come from Mississippi .,REFUTES,ev_19,2.0,ev_18,2.0,ev_18,2.0,ev_18,2.0,ev_18
+test_131009,West Ham United F.C . is not a football club .,REFUTES,ev_622,1.0,ev_622,2.0,ev_621,1.0,ev_622,1.0,ev_622
+test_194775,Larry the Cable Guy series finale aired on the month of September .,REFUTES,ev_582,4.0,ev_583,4.0,ev_583,2.0,ev_583,2.0,ev_583
+test_52175,Magic Johnson did not play for the Lakers .,REFUTES,ev_230,3.0,ev_177,2.0,ev_177,2.0,ev_177,2.0,ev_177
+test_163993,Veeram had a director .,SUPPORTS,ev_614,3.0,ev_616,2.0,ev_615,1.0,ev_614,1.0,ev_614
+test_180734,Victoria ( Dance Exponents song ) was released in the Southern Hemisphere in 1982 .,SUPPORTS,ev_431,3.0,ev_647,3.0,ev_647,3.0,ev_647,3.0,ev_647
+test_93250,James Jones 's nickname is not `` Champ `` .,REFUTES,ev_257,1.0,ev_257,1.0,ev_257,1.0,ev_257,1.0,ev_257
+test_118044,The Concert for Bangladesh is recognized as a highly successful and influential project .,SUPPORTS,ev_42,1.0,ev_42,1.0,ev_42,1.0,ev_42,1.0,ev_42
+test_143712,Neil Diamond is a Canadian bullfighter .,REFUTES,ev_396,3.0,ev_394,2.0,ev_394,2.0,ev_394,2.0,ev_394
+test_212194,Miracle at St. Anna only tells the story of four cats .,REFUTES,ev_447,5.0,ev_448,,ev_448,3.0,ev_448,3.0,ev_448
+test_31963,Shane Black was born in 1961 .,SUPPORTS,ev_450,1.0,ev_450,1.0,ev_450,1.0,ev_450,1.0,ev_450
+test_124667,David Packouz refused to be an entrepreneur .,REFUTES,ev_143,1.0,ev_143,4.0,ev_144,2.0,ev_144,2.0,ev_144
+test_166644,Anne Rice was born in the United States in the 1970 's .,REFUTES,ev_48,4.0,ev_336,2.0,ev_49,2.0,ev_49,2.0,ev_49
+test_128538,Starrcade was never broadcast via pay-per-view television .,REFUTES,ev_275,1.0,ev_275,3.0,ev_274,2.0,ev_274,2.0,ev_274
+test_108950,Alexandra Daddario is Canadian .,REFUTES,ev_39,2.0,ev_38,2.0,ev_38,2.0,ev_38,2.0,ev_38
+test_229317,A working animal is anything but an animal .,REFUTES,ev_15,2.0,ev_14,2.0,ev_14,1.0,ev_15,1.0,ev_15
+test_204033,Down With Love is a 2003 comedy film .,SUPPORTS,ev_163,1.0,ev_163,1.0,ev_163,1.0,ev_163,1.0,ev_163
+test_152316,Angelsberg is in Canada .,REFUTES,ev_47,2.0,ev_46,2.0,ev_46,2.0,ev_46,2.0,ev_46
+test_64752,The History of Earth dates back more than 5 billion years .,REFUTES,ev_175,2.0,ev_176,2.0,ev_176,2.0,ev_176,2.0,ev_176
+test_129650,Rhythm Nation was incapable of being performed on Britain 's Got Talent .,REFUTES,ev_297,3.0,ev_299,,ev_298,3.0,ev_298,3.0,ev_298
+test_224968,Kentucky is known for bluegrass music .,SUPPORTS,ev_342,1.0,ev_342,1.0,ev_342,1.0,ev_342,1.0,ev_342
+test_125398,"Harold Macmillan died on December 29 , 1886 .",REFUTES,ev_370,2.0,ev_369,2.0,ev_369,2.0,ev_369,2.0,ev_369
+test_100400,Stephen Hillenburg died in Oklahoma .,REFUTES,ev_87,3.0,ev_493,3.0,ev_493,2.0,ev_493,2.0,ev_493
+test_34180,A Floppy disk is composed of a thin and flexible magnetic transmission medium .,SUPPORTS,ev_2,2.0,ev_3,1.0,ev_2,2.0,ev_3,2.0,ev_3
+test_204647,"Rio 's sequel was released on April 11 , 2012 .",REFUTES,ev_12,2.0,ev_11,2.0,ev_11,2.0,ev_11,2.0,ev_11
+test_147411,Hot Right Now is mistakenly attributed to DJ Fresh .,REFUTES,ev_634,2.0,ev_635,2.0,ev_633,2.0,ev_635,2.0,ev_635
+test_113560,AMGTV does not have drama television programming .,REFUTES,ev_16,1.0,ev_16,1.0,ev_16,1.0,ev_16,1.0,ev_16
+test_24259,The University of Illinois at Chicago is privately funded .,REFUTES,ev_546,2.0,ev_547,2.0,ev_547,2.0,ev_547,2.0,ev_547
+test_12684,The CONCACAF Champions League is rarely organized by CONCACAF .,REFUTES,ev_518,1.0,ev_518,2.0,ev_519,2.0,ev_519,2.0,ev_519
+test_150217,"John Dolmayan was born on July 15 , 1873 .",REFUTES,ev_328,2.0,ev_327,2.0,ev_327,2.0,ev_327,2.0,ev_327
+test_169049,Manmohan Singh was elected again .,SUPPORTS,ev_572,1.0,ev_572,1.0,ev_572,1.0,ev_572,1.0,ev_572
+test_157546,Kendall Jenner is Instagram .,REFUTES,ev_55,4.0,ev_337,3.0,ev_337,4.0,ev_337,4.0,ev_337
+test_69285,Ashley Cole plays for the Portland Timbers .,REFUTES,ev_57,2.0,ev_58,2.0,ev_58,2.0,ev_58,2.0,ev_58
+test_144723,Part of the Hindu Kush is in Brazil .,REFUTES,ev_537,2.0,ev_536,2.0,ev_536,2.0,ev_536,2.0,ev_536
+test_222033,Brubaker is a 2007 drama .,REFUTES,ev_98,2.0,ev_100,3.0,ev_100,2.0,ev_100,2.0,ev_100
+test_49599,Henry II of France died in an archery tournament .,REFUTES,ev_247,2.0,ev_248,2.0,ev_248,2.0,ev_248,2.0,ev_248
+test_2075430000002,Mel B released a song on Virgin Records in 2007 .,REFUTES,ev_96,2.0,ev_97,2.0,ev_97,2.0,ev_97,2.0,ev_97
+test_2075430000003,Mel B did not release a song on Virgin Records in 2007 .,REFUTES,ev_97,1.0,ev_97,4.0,ev_574,1.0,ev_97,1.0,ev_97
+test_2075430000004,Mel B did not release a song on Virgin Records in 2007 .,SUPPORTS,ev_96,2.0,ev_97,8.0,ev_574,2.0,ev_97,2.0,ev_97
+test_853500000002,"Andrew Kevin Walker was born on Monday August 14 , 1964 .",REFUTES,ev_45,3.0,ev_43,2.0,ev_44,3.0,ev_44,3.0,ev_44
+test_853500000003,"Andrew Kevin Walker was born on Monday August 14 , 1966 .",REFUTES,ev_44,2.0,ev_45,2.0,ev_45,2.0,ev_45,2.0,ev_45
+test_853500000004,"Andrew Kevin Walker was born on Monday August 14 , 1966 .",SUPPORTS,ev_45,1.0,ev_45,1.0,ev_45,1.0,ev_45,1.0,ev_45
+test_11880000002,Pearl Jam is a type of dressing .,SUPPORTS,ev_407,1.0,ev_407,1.0,ev_407,1.0,ev_407,1.0,ev_407
+test_11880000003,Pearl Jam is a rock band .,SUPPORTS,ev_408,1.0,ev_408,1.0,ev_408,1.0,ev_408,1.0,ev_408
+test_11880000004,Pearl Jam is a rock band .,REFUTES,ev_407,2.0,ev_408,2.0,ev_408,2.0,ev_408,2.0,ev_408
+test_224350000002,The Faroe Islands did not exist in 1035 .,SUPPORTS,ev_530,1.0,ev_530,1.0,ev_530,3.0,ev_80,3.0,ev_80
+test_224350000003,The Faroe Islands existed in 1035 .,SUPPORTS,ev_80,3.0,ev_530,3.0,ev_492,2.0,ev_492,2.0,ev_492
+test_224350000004,The Faroe Islands existed in 1035 .,REFUTES,ev_530,1.0,ev_530,2.0,ev_492,3.0,ev_492,3.0,ev_492
+test_723580000002,Ripon College is in hell .,SUPPORTS,ev_433,1.0,ev_433,1.0,ev_433,1.0,ev_433,1.0,ev_433
+test_723580000003,Ripon College is in Wisconsin .,SUPPORTS,ev_432,1.0,ev_432,1.0,ev_432,1.0,ev_432,1.0,ev_432
+test_723580000004,Ripon College is in Wisconsin .,REFUTES,ev_433,2.0,ev_432,2.0,ev_432,2.0,ev_432,2.0,ev_432
+test_977390000002,Tool is an artist .,REFUTES,ev_598,1.0,ev_598,2.0,ev_599,2.0,ev_599,2.0,ev_599
+test_977390000003,Tool is a movie .,REFUTES,ev_599,2.0,ev_598,2.0,ev_598,2.0,ev_598,2.0,ev_598
+test_977390000004,Tool is a movie .,SUPPORTS,ev_598,1.0,ev_598,1.0,ev_598,1.0,ev_598,1.0,ev_598
+test_2084130000002,Excuse My French is the debut album of a hip hop recording artist .,REFUTES,ev_188,2.0,ev_189,2.0,ev_189,2.0,ev_189,2.0,ev_189
+test_2084130000003,Excuse My French is the debut album of a hark rock recording artist .,REFUTES,ev_189,1.0,ev_189,2.0,ev_188,1.0,ev_189,1.0,ev_189
+test_2084130000004,Excuse My French is the debut album of a hark rock recording artist .,SUPPORTS,ev_188,2.0,ev_189,1.0,ev_188,2.0,ev_189,2.0,ev_189
+test_1474930000002,T2 Trainspotting is set in and around a city .,REFUTES,ev_497,4.0,ev_495,4.0,ev_494,1.0,ev_497,1.0,ev_497
+test_1474930000003,T2 Trainspotting is set in and around a river .,REFUTES,ev_496,4.0,ev_495,3.0,ev_497,2.0,ev_497,2.0,ev_497
+test_1474930000004,T2 Trainspotting is set in and around a river .,SUPPORTS,ev_497,3.0,ev_495,1.0,ev_497,1.0,ev_497,1.0,ev_497
+test_394050000002,Lou Gehrig was a baseball player who defended the area near the first base .,REFUTES,ev_245,2.0,ev_244,1.0,ev_245,2.0,ev_244,2.0,ev_244
+test_394050000003,Lou Gehrig was a baseball player who defended the area near the second base .,REFUTES,ev_244,2.0,ev_245,2.0,ev_245,2.0,ev_245,2.0,ev_245
+test_394050000004,Lou Gehrig was a baseball player who defended the area near the second base .,SUPPORTS,ev_245,1.0,ev_245,1.0,ev_245,1.0,ev_245,1.0,ev_245
+test_462710000002,"Prescott , Arizona is in northern Yavapai County .",REFUTES,ev_417,3.0,ev_418,3.0,ev_418,2.0,ev_418,2.0,ev_418
+test_462710000003,"Prescott , Arizona is in La Paz County .",REFUTES,ev_418,3.0,ev_417,3.0,ev_417,2.0,ev_417,2.0,ev_417
+test_462710000004,"Prescott , Arizona is in La Paz County .",SUPPORTS,ev_417,1.0,ev_417,1.0,ev_417,1.0,ev_417,1.0,ev_417
+test_257170000002,Alex Jones is apolitical .,SUPPORTS,ev_36,1.0,ev_36,2.0,ev_37,2.0,ev_37,2.0,ev_37
+test_257170000003,Alex Jones is not apolitical .,SUPPORTS,ev_37,3.0,ev_36,1.0,ev_37,1.0,ev_37,1.0,ev_37
+test_257170000004,Alex Jones is not apolitical .,REFUTES,ev_36,1.0,ev_36,2.0,ev_37,2.0,ev_37,2.0,ev_37
+test_1486610000002,Aerobic exercise is good for heart health .,REFUTES,ev_192,4.0,ev_193,3.0,ev_190,4.0,ev_191,4.0,ev_191
+test_1486610000003,Aerobic exercise is bad for heart health .,REFUTES,ev_193,2.0,ev_190,3.0,ev_190,3.0,ev_190,3.0,ev_190
+test_1486610000004,Aerobic exercise is bad for heart health .,SUPPORTS,ev_192,4.0,ev_190,2.0,ev_190,4.0,ev_190,4.0,ev_190
+test_2003820000002,Tom DeLonge did n't finish middle school .,SUPPORTS,ev_26,1.0,ev_26,1.0,ev_26,1.0,ev_26,1.0,ev_26
+test_2003820000003,Tom DeLonge finished middle school .,SUPPORTS,ev_219,,ev_26,2.0,ev_26,2.0,ev_26,2.0,ev_26
+test_2003820000004,Tom DeLonge finished middle school .,REFUTES,ev_26,1.0,ev_26,1.0,ev_26,1.0,ev_26,1.0,ev_26
+test_48630000002,Janelle Monáe 's full name is Janelle Monáe Robinson .,REFUTES,ev_319,2.0,ev_320,2.0,ev_320,2.0,ev_320,2.0,ev_320
+test_48630000003,Janelle Monáe 's full name is Janelle Monáe Lanister .,REFUTES,ev_320,2.0,ev_319,2.0,ev_319,2.0,ev_319,2.0,ev_319
+test_48630000004,Janelle Monáe 's full name is Janelle Monáe Lanister .,SUPPORTS,ev_319,1.0,ev_319,1.0,ev_319,1.0,ev_319,1.0,ev_319
+test_180650000002,Colombiana was produced by Olivier Megaton .,SUPPORTS,ev_122,2.0,ev_123,1.0,ev_122,1.0,ev_122,1.0,ev_122
+test_180650000003,Colombiana was produced by Luc Besson .,SUPPORTS,ev_121,1.0,ev_121,1.0,ev_121,1.0,ev_121,1.0,ev_121
+test_180650000004,Colombiana was produced by Luc Besson .,REFUTES,ev_122,2.0,ev_121,2.0,ev_121,2.0,ev_121,2.0,ev_121
+test_1043860000002,Tenacious D started in 1997 .,SUPPORTS,ev_504,1.0,ev_504,1.0,ev_504,1.0,ev_504,1.0,ev_504
+test_1043860000003,Tenacious D started in 1994 .,SUPPORTS,ev_503,2.0,ev_502,2.0,ev_502,2.0,ev_502,2.0,ev_502
+test_1043860000004,Tenacious D started in 1994 .,REFUTES,ev_504,3.0,ev_502,3.0,ev_502,3.0,ev_502,3.0,ev_502
+test_1982160000002,Saturn is the second-largest planet in the Solar System .,REFUTES,ev_439,3.0,ev_440,3.0,ev_438,3.0,ev_440,3.0,ev_440
+test_1982160000003,Saturn is the largest planet in the Solar System .,REFUTES,ev_440,3.0,ev_438,3.0,ev_438,3.0,ev_438,3.0,ev_438
+test_1982160000004,Saturn is the largest planet in the Solar System .,SUPPORTS,ev_439,2.0,ev_438,2.0,ev_438,2.0,ev_438,2.0,ev_438
+test_1255130000002,The dress did not inspire hashtags .,SUPPORTS,ev_558,1.0,ev_558,1.0,ev_558,1.0,ev_558,1.0,ev_558
+test_1255130000003,The dress inspired millions of hashtags .,SUPPORTS,ev_292,2.0,ev_558,1.0,ev_292,1.0,ev_292,1.0,ev_292
+test_1255130000004,The dress inspired millions of hashtags .,REFUTES,ev_558,1.0,ev_558,2.0,ev_292,2.0,ev_292,2.0,ev_292
+test_18310000002,DNA is a single .,SUPPORTS,ev_516,1.0,ev_516,2.0,ev_132,1.0,ev_516,1.0,ev_516
+test_18310000003,DNA is an album .,SUPPORTS,ev_132,1.0,ev_132,1.0,ev_132,1.0,ev_132,1.0,ev_132
+test_18310000004,DNA is an album .,REFUTES,ev_516,2.0,ev_132,2.0,ev_132,2.0,ev_132,2.0,ev_132
+test_414190000002,Liam Neeson has been nominated for a British Academy of Film and Television Arts award .,REFUTES,ev_221,3.0,ev_565,2.0,ev_220,2.0,ev_220,2.0,ev_220
+test_414190000003,Liam Neeson was never nominated for a British Academy of Film and Television Arts award .,REFUTES,ev_220,4.0,ev_565,4.0,ev_221,2.0,ev_221,2.0,ev_221
+test_414190000004,Liam Neeson was never nominated for a British Academy of Film and Television Arts award .,SUPPORTS,ev_221,3.0,ev_565,1.0,ev_221,1.0,ev_221,1.0,ev_221
+test_882510000002,Yale University has had few notable alumni .,SUPPORTS,ev_626,1.0,ev_626,1.0,ev_626,3.0,ev_628,3.0,ev_628
+test_882510000003,Yale University had many notable alumni .,SUPPORTS,ev_627,2.0,ev_626,1.0,ev_627,2.0,ev_628,2.0,ev_628
+test_882510000004,Yale University had many notable alumni .,REFUTES,ev_626,1.0,ev_626,3.0,ev_627,3.0,ev_628,3.0,ev_628
+test_568090000002,The Washington Wizards lost the division title in 2017 .,SUPPORTS,ev_592,2.0,ev_593,1.0,ev_592,2.0,ev_593,2.0,ev_593
+test_568090000003,The Washington Wizards won the division title in 2017 .,SUPPORTS,ev_593,1.0,ev_593,2.0,ev_592,1.0,ev_593,1.0,ev_593
+test_568090000004,The Washington Wizards won the division title in 2017 .,REFUTES,ev_592,2.0,ev_593,1.0,ev_592,2.0,ev_593,2.0,ev_593
+test_277770000002,The Colosseum is in the United States .,SUPPORTS,ev_520,,ev_336,1.0,ev_520,1.0,ev_520,,ev_72
+test_277770000003,The Colosseum is in Italy .,SUPPORTS,ev_521,1.0,ev_521,1.0,ev_521,1.0,ev_521,1.0,ev_521
+test_277770000004,The Colosseum is in Italy .,REFUTES,ev_520,4.0,ev_521,2.0,ev_521,2.0,ev_521,2.0,ev_521
+test_326790000002,Duane Chapman 's nickname is `` Dog . ``,REFUTES,ev_166,2.0,ev_167,2.0,ev_167,2.0,ev_167,2.0,ev_167
+test_326790000003,Duane Chapman 's nickname is `` Bird . ``,REFUTES,ev_167,2.0,ev_166,2.0,ev_166,2.0,ev_166,2.0,ev_166
+test_326790000004,Duane Chapman 's nickname is `` Bird . ``,SUPPORTS,ev_166,1.0,ev_166,1.0,ev_166,1.0,ev_166,1.0,ev_166
+test_1548090000002,Tenacious D started in Texas .,SUPPORTS,ev_502,1.0,ev_502,1.0,ev_502,1.0,ev_502,1.0,ev_502
+test_1548090000003,Tenacious D started in California .,SUPPORTS,ev_503,1.0,ev_503,2.0,ev_504,1.0,ev_503,1.0,ev_503
+test_1548090000004,Tenacious D started in California .,REFUTES,ev_502,3.0,ev_503,3.0,ev_504,3.0,ev_503,3.0,ev_503
+test_14810000002,EA Black Box was founded in 1999 .,SUPPORTS,ev_174,1.0,ev_174,1.0,ev_174,1.0,ev_174,1.0,ev_174
+test_14810000003,EA Black Box was founded in 1998 .,SUPPORTS,ev_173,1.0,ev_173,1.0,ev_173,1.0,ev_173,1.0,ev_173
+test_14810000004,EA Black Box was founded in 1998 .,REFUTES,ev_174,2.0,ev_173,2.0,ev_173,2.0,ev_173,2.0,ev_173
+test_68100000002,The Hundred Years ' War includes the Edwardian Era War and was the first phase in the war .,REFUTES,ev_260,1.0,ev_260,2.0,ev_259,2.0,ev_259,2.0,ev_259
+test_68100000003,The Hundred Years ' War includes the Edwardian Era War and was the last phase in the war .,REFUTES,ev_259,2.0,ev_260,1.0,ev_259,1.0,ev_259,1.0,ev_259
+test_68100000004,The Hundred Years ' War includes the Edwardian Era War and was the last phase in the war .,SUPPORTS,ev_260,1.0,ev_260,2.0,ev_259,2.0,ev_259,2.0,ev_259
+test_1973860000002,Simón Bolívar was born in 1783 .,REFUTES,ev_477,3.0,ev_479,3.0,ev_479,3.0,ev_478,3.0,ev_478
+test_1973860000003,Simón Bolívar was born in 1721 .,REFUTES,ev_478,3.0,ev_477,3.0,ev_479,2.0,ev_477,2.0,ev_477
+test_1973860000004,Simón Bolívar was born in 1721 .,SUPPORTS,ev_477,1.0,ev_477,2.0,ev_479,1.0,ev_477,1.0,ev_477
+test_558740000002,The Bloods are identified by the blue color worn by their members .,SUPPORTS,ev_590,1.0,ev_590,1.0,ev_590,1.0,ev_590,1.0,ev_590
+test_558740000003,The Bloods are identified by the red color worn by their members .,SUPPORTS,ev_591,1.0,ev_591,1.0,ev_591,1.0,ev_591,1.0,ev_591
+test_558740000004,The Bloods are identified by the red color worn by their members .,REFUTES,ev_590,2.0,ev_591,2.0,ev_591,2.0,ev_591,2.0,ev_591
+test_436080000002,Magic Johnson was a tap dancer .,SUPPORTS,ev_178,1.0,ev_178,1.0,ev_178,1.0,ev_178,1.0,ev_178
+test_436080000003,Magic Johnson was basketball player .,SUPPORTS,ev_177,1.0,ev_177,1.0,ev_177,1.0,ev_177,1.0,ev_177
+test_436080000004,Magic Johnson was basketball player .,REFUTES,ev_178,2.0,ev_177,2.0,ev_177,2.0,ev_177,2.0,ev_177
+test_1792890000002,Tylenol is advertised for increasing pain .,SUPPORTS,ev_605,1.0,ev_605,1.0,ev_605,1.0,ev_605,1.0,ev_605
+test_1792890000003,Tylenol is advertised for reducing pain .,SUPPORTS,ev_604,1.0,ev_604,1.0,ev_604,1.0,ev_604,1.0,ev_604
+test_1792890000004,Tylenol is advertised for reducing pain .,REFUTES,ev_605,2.0,ev_604,2.0,ev_604,2.0,ev_604,2.0,ev_604
+test_706950000002,"Jackpot had 1150 screens release in India on December 13 , 2013 .",REFUTES,ev_560,2.0,ev_559,2.0,ev_559,2.0,ev_559,2.0,ev_559
+test_706950000003,"Jackpot had 870 screens release in India on December 13 , 2013 .",REFUTES,ev_559,2.0,ev_560,2.0,ev_560,2.0,ev_560,2.0,ev_560
+test_706950000004,"Jackpot had 870 screens release in India on December 13 , 2013 .",SUPPORTS,ev_560,1.0,ev_560,1.0,ev_560,1.0,ev_560,1.0,ev_560
+test_865680000002,In the End was the only song written by Linkin Park .,SUPPORTS,ev_305,4.0,ev_376,5.0,ev_641,1.0,ev_305,1.0,ev_305
+test_865680000003,In the End was not the only song written by Linkin Park .,SUPPORTS,ev_302,,ev_376,8.0,ev_641,10.0,ev_377,,ev_377
+test_865680000004,In the End was not the only song written by Linkin Park .,REFUTES,ev_305,4.0,ev_376,5.0,ev_641,2.0,ev_377,2.0,ev_377
+test_242640000002,Exercise temporarily increases the heart rate .,REFUTES,ev_191,3.0,ev_192,2.0,ev_193,2.0,ev_193,2.0,ev_193
+test_242640000003,Exercise temporarily decreases the heart rate .,REFUTES,ev_193,3.0,ev_191,2.0,ev_191,2.0,ev_191,2.0,ev_191
+test_242640000004,Exercise temporarily decreases the heart rate .,SUPPORTS,ev_191,1.0,ev_191,1.0,ev_191,1.0,ev_191,1.0,ev_191
+test_764330000002,The Africa Cup of Nations is the football championship of Asia .,SUPPORTS,ev_506,1.0,ev_506,1.0,ev_506,1.0,ev_506,1.0,ev_506
+test_764330000003,The Africa Cup of Nations is the football championship of Africa .,SUPPORTS,ev_505,1.0,ev_505,1.0,ev_505,1.0,ev_505,1.0,ev_505
+test_764330000004,The Africa Cup of Nations is the football championship of Africa .,REFUTES,ev_506,2.0,ev_505,2.0,ev_505,2.0,ev_505,2.0,ev_505
+test_35180000002,Exercise is bad for heart health .,SUPPORTS,ev_190,1.0,ev_190,1.0,ev_190,1.0,ev_190,1.0,ev_190
+test_35180000003,Exercise is good for heart health .,SUPPORTS,ev_193,1.0,ev_193,2.0,ev_190,2.0,ev_191,2.0,ev_191
+test_35180000004,Exercise is good for heart health .,REFUTES,ev_190,3.0,ev_193,1.0,ev_190,3.0,ev_191,3.0,ev_191
+test_883830000002,Carlos Santana is a comedian .,SUPPORTS,ev_108,1.0,ev_108,1.0,ev_108,1.0,ev_108,1.0,ev_108
+test_883830000004,Carlos Santana is a musician .,REFUTES,ev_108,4.0,ev_109,4.0,ev_111,4.0,ev_111,4.0,ev_111
+test_469700000002,Rachel Green was played by Courtney Cox .,SUPPORTS,ev_413,3.0,ev_428,2.0,ev_428,1.0,ev_413,1.0,ev_413
+test_469700000003,Rachel Green was played by Jennifer Aniston .,SUPPORTS,ev_414,3.0,ev_428,2.0,ev_428,2.0,ev_428,2.0,ev_428
+test_469700000004,Rachel Green was played by Jennifer Aniston .,REFUTES,ev_413,,ev_428,,ev_428,5.0,ev_428,,ev_428
+test_1982210000002,Saturn is larger than Jupiter .,SUPPORTS,ev_438,1.0,ev_438,1.0,ev_438,1.0,ev_438,1.0,ev_438
+test_1982210000003,Saturn is smaller than Jupiter .,SUPPORTS,ev_440,3.0,ev_438,2.0,ev_439,3.0,ev_439,3.0,ev_439
+test_1982210000004,Saturn is smaller than Jupiter .,REFUTES,ev_438,1.0,ev_438,3.0,ev_439,2.0,ev_439,2.0,ev_439
+test_1571830000002,Juventus F.C . has long worn a black-and-white-striped home uniform .,REFUTES,ev_555,2.0,ev_554,2.0,ev_554,2.0,ev_554,2.0,ev_554
+test_1571830000003,Juventus F.C . has long worn a black-and-yellow-striped home uniform .,REFUTES,ev_554,2.0,ev_555,2.0,ev_555,2.0,ev_555,2.0,ev_555
+test_1571830000004,Juventus F.C . has long worn a black-and-yellow-striped home uniform .,SUPPORTS,ev_555,1.0,ev_555,1.0,ev_555,1.0,ev_555,1.0,ev_555
+test_1854130000002,CHiPs is an American romance film .,SUPPORTS,ev_102,1.0,ev_102,1.0,ev_102,1.0,ev_102,1.0,ev_102
+test_1854130000003,CHiPs is an American action comedy .,SUPPORTS,ev_101,1.0,ev_101,2.0,ev_102,1.0,ev_101,1.0,ev_101
+test_1854130000004,CHiPs is an American action comedy .,REFUTES,ev_102,2.0,ev_101,1.0,ev_102,2.0,ev_101,2.0,ev_101
+test_2233430000002,2015 was the year when the principal photography of The Disaster Aritst ( film ) started .,REFUTES,ev_420,2.0,ev_421,5.0,ev_421,2.0,ev_421,2.0,ev_421
+test_2233430000003,2008 was the year when the principal photography of The Disaster Aritst ( film ) started .,REFUTES,ev_421,2.0,ev_420,2.0,ev_420,2.0,ev_420,2.0,ev_420
+test_2233430000004,2008 was the year when the principal photography of The Disaster Aritst ( film ) started .,SUPPORTS,ev_420,1.0,ev_420,1.0,ev_420,1.0,ev_420,1.0,ev_420
+test_1312950000002,Tatum O'Neal spent her life single .,SUPPORTS,ev_457,2.0,ev_271,1.0,ev_457,4.0,ev_271,4.0,ev_271
+test_1312950000003,Tatum O'Neal had a boyfriend .,SUPPORTS,ev_461,,ev_271,6.0,ev_230,5.0,ev_272,,ev_272
+test_1312950000004,Tatum O'Neal had a boyfriend .,REFUTES,ev_457,,ev_271,8.0,ev_230,6.0,ev_272,,ev_272
+test_464750000002,DreamWorks Animation produced Trollhunters .,REFUTES,ev_601,2.0,ev_600,1.0,ev_601,2.0,ev_600,2.0,ev_600
+test_464750000003,Pixar produced Trollhunters .,REFUTES,ev_600,3.0,ev_601,2.0,ev_601,2.0,ev_601,2.0,ev_601
+test_464750000004,Pixar produced Trollhunters .,SUPPORTS,ev_601,1.0,ev_601,1.0,ev_601,1.0,ev_601,1.0,ev_601
+test_1240880000002,Daggering is a form of Jamaican dance .,REFUTES,ev_135,3.0,ev_136,2.0,ev_137,2.0,ev_137,2.0,ev_137
+test_1240880000003,Daggering is a form of Jamaican martial art .,REFUTES,ev_137,2.0,ev_136,2.0,ev_135,2.0,ev_135,2.0,ev_135
+test_1240880000004,Daggering is a form of Jamaican martial art .,SUPPORTS,ev_135,3.0,ev_136,1.0,ev_135,1.0,ev_135,1.0,ev_135
+test_1331690000002,100 percent of the University of Mississippi 's students come from Mississippi .,SUPPORTS,ev_18,1.0,ev_18,1.0,ev_18,1.0,ev_18,1.0,ev_18
+test_1331690000003,60 percent of the University of Mississippi 's students come from Mississippi .,SUPPORTS,ev_19,1.0,ev_19,2.0,ev_18,1.0,ev_19,1.0,ev_19
+test_1331690000004,60 percent of the University of Mississippi 's students come from Mississippi .,REFUTES,ev_18,2.0,ev_19,1.0,ev_18,2.0,ev_19,2.0,ev_19
+test_1947750000002,Larry the Cable Guy series finale aired on the month of September .,SUPPORTS,ev_583,1.0,ev_583,1.0,ev_583,1.0,ev_583,1.0,ev_583
+test_1947750000003,Larry the Cable Guy series finale aired on the month of August .,SUPPORTS,ev_582,1.0,ev_582,1.0,ev_582,1.0,ev_582,1.0,ev_582
+test_1947750000004,Larry the Cable Guy series finale aired on the month of August .,REFUTES,ev_583,4.0,ev_582,5.0,ev_582,2.0,ev_582,2.0,ev_582
+test_1807340000002,Victoria ( Dance Exponents song ) was released in the Southern Hemisphere in 1982 .,REFUTES,ev_430,,ev_647,4.0,ev_647,4.0,ev_647,,ev_647
+test_1807340000003,Victoria ( Dance Exponents song ) was released in the Southern Hemisphere in 1978 .,REFUTES,ev_431,,ev_647,4.0,ev_646,4.0,ev_646,,ev_646
+test_1807340000004,Victoria ( Dance Exponents song ) was released in the Southern Hemisphere in 1978 .,SUPPORTS,ev_430,3.0,ev_647,3.0,ev_646,3.0,ev_646,3.0,ev_646
+test_1437120000002,Neil Diamond is a Canadian bullfighter .,SUPPORTS,ev_394,1.0,ev_394,1.0,ev_394,1.0,ev_394,1.0,ev_394
+test_1437120000003,Neil Diamond is a singer .,SUPPORTS,ev_396,1.0,ev_396,1.0,ev_396,1.0,ev_396,1.0,ev_396
+test_1437120000004,Neil Diamond is a singer .,REFUTES,ev_394,2.0,ev_396,2.0,ev_396,2.0,ev_396,2.0,ev_396
+test_1666440000002,Anne Rice was born in the United States in the 1970 's .,SUPPORTS,ev_49,5.0,ev_336,1.0,ev_49,1.0,ev_49,1.0,ev_49
+test_1666440000003,Anne Rice was born in the United States in the 1940 's .,SUPPORTS,ev_48,4.0,ev_33,1.0,ev_48,1.0,ev_48,1.0,ev_48
+test_1666440000004,Anne Rice was born in the United States in the 1940 's .,REFUTES,ev_49,5.0,ev_33,2.0,ev_48,2.0,ev_48,2.0,ev_48
+test_647520000002,The History of Earth dates back more than 5 billion years .,SUPPORTS,ev_176,1.0,ev_176,1.0,ev_176,1.0,ev_176,1.0,ev_176
+test_647520000003,The History of Earth dates back less than 5 billion years .,SUPPORTS,ev_175,2.0,ev_176,2.0,ev_176,2.0,ev_176,2.0,ev_176
+test_647520000004,The History of Earth dates back less than 5 billion years .,REFUTES,ev_176,1.0,ev_176,1.0,ev_176,1.0,ev_176,1.0,ev_176
+test_1004000000002,Stephen Hillenburg died in Oklahoma .,SUPPORTS,ev_493,1.0,ev_493,1.0,ev_493,1.0,ev_493,1.0,ev_493
+test_1004000000003,Stephen Hillenburg was born in Oklahoma .,SUPPORTS,ev_87,2.0,ev_493,3.0,ev_493,3.0,ev_493,3.0,ev_493
+test_1004000000004,Stephen Hillenburg was born in Oklahoma .,REFUTES,ev_493,1.0,ev_493,1.0,ev_493,1.0,ev_493,1.0,ev_493
+test_341800000002,A Floppy disk is composed of a thin and flexible magnetic transmission medium .,REFUTES,ev_4,3.0,ev_3,3.0,ev_2,3.0,ev_3,3.0,ev_3
+test_341800000003,A Floppy disk is a solid - state drive .,REFUTES,ev_2,3.0,ev_3,2.0,ev_4,1.0,ev_2,1.0,ev_2
+test_341800000004,A Floppy disk is a solid - state drive .,SUPPORTS,ev_4,2.0,ev_3,1.0,ev_4,3.0,ev_2,3.0,ev_2
+test_242590000002,The University of Illinois at Chicago is privately funded .,SUPPORTS,ev_547,1.0,ev_547,1.0,ev_547,1.0,ev_547,1.0,ev_547
+test_242590000003,The University of Illinois at Chicago is funded by the state of Illinois .,SUPPORTS,ev_546,1.0,ev_546,1.0,ev_546,1.0,ev_546,1.0,ev_546
+test_242590000004,The University of Illinois at Chicago is funded by the state of Illinois .,REFUTES,ev_547,2.0,ev_546,2.0,ev_546,2.0,ev_546,2.0,ev_546
+test_1575460000002,Kendall Jenner is Instagram .,SUPPORTS,ev_337,1.0,ev_337,1.0,ev_337,1.0,ev_337,1.0,ev_337
+test_1575460000003,Kendall Jenner is on Instagram .,SUPPORTS,ev_55,4.0,ev_337,4.0,ev_337,4.0,ev_337,4.0,ev_337
+test_1575460000004,Kendall Jenner is on Instagram .,REFUTES,ev_337,1.0,ev_337,1.0,ev_337,1.0,ev_337,1.0,ev_337
+test_692850000002,Ashley Cole plays for the Portland Timbers .,SUPPORTS,ev_58,1.0,ev_58,1.0,ev_58,1.0,ev_58,1.0,ev_58
+test_692850000003,Ashley Cole plays for the Los Angeles Galaxy .,SUPPORTS,ev_57,1.0,ev_57,1.0,ev_57,1.0,ev_57,1.0,ev_57
+test_692850000004,Ashley Cole plays for the Los Angeles Galaxy .,REFUTES,ev_58,2.0,ev_57,2.0,ev_57,2.0,ev_57,2.0,ev_57
+test_495990000002,Henry II of France died in an archery tournament .,SUPPORTS,ev_248,1.0,ev_248,1.0,ev_248,1.0,ev_248,1.0,ev_248
+test_495990000003,Henry II of France died in a jousting tournament .,SUPPORTS,ev_247,1.0,ev_247,1.0,ev_247,1.0,ev_247,1.0,ev_247
+test_495990000004,Henry II of France died in a jousting tournament .,REFUTES,ev_248,2.0,ev_247,2.0,ev_247,2.0,ev_247,2.0,ev_247

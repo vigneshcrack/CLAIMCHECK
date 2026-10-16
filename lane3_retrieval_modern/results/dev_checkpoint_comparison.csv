@@ -1,0 +1,4 @@
+checkpoint,dim,recall_at_1,recall_at_5,mrr,seconds_index_plus_queries
+sentence-transformers/all-mpnet-base-v2,768,0.4378531073446328,0.9491525423728814,0.6705149762353152,10.4
+sentence-transformers/all-MiniLM-L6-v2,384,0.4435028248587571,0.9463276836158192,0.6704443547663886,4.3
+sentence-transformers/multi-qa-mpnet-base-cos-v1,768,0.4632768361581921,0.9717514124293786,0.6962682719038651,8.3
