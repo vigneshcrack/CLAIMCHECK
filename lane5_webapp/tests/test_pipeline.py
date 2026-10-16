@@ -1,5 +1,5 @@
 
-"""Basic integration tests for ClaimCheck Lane 5."""
+"""Integration tests for ClaimCheck Lane 2 and Lane 4."""
 
 from pathlib import Path
 import sys
@@ -11,9 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from lane2_retrieval_traditional.retrieval import (
-    retrieve_with_scores,
-)
+from lane2_retrieval_traditional.retrieval import retrieve_with_scores
 from lane4_verification.nli_model import verify_batch
 
 
@@ -22,22 +20,21 @@ CLAIM = "Telemundo is a Spanish-language television network."
 
 @pytest.mark.parametrize("method", ["bm25", "tfidf"])
 def test_retrieval_methods(method):
-    """Both retrieval methods must return the expected structure."""
+    """BM25 and TF-IDF should return correctly structured evidence."""
     results = retrieve_with_scores(CLAIM, k=5, method=method)
 
     assert isinstance(results, list)
-    assert len(results) <= 5
-    assert len(results) > 0
+    assert 0 < len(results) <= 5
 
     for evidence_id, score, text in results:
         assert isinstance(evidence_id, str)
-        assert isinstance(score, float)
+        assert isinstance(score, (int, float))
         assert isinstance(text, str)
         assert text.strip()
 
 
 def test_retrieval_contains_telemundo_evidence():
-    """The known corpus should retrieve relevant Telemundo evidence."""
+    """The known corpus should retrieve both Telemundo sentences."""
     results = retrieve_with_scores(CLAIM, k=5, method="bm25")
     ids = [item[0] for item in results]
 
@@ -46,7 +43,7 @@ def test_retrieval_contains_telemundo_evidence():
 
 
 def test_nli_returns_expected_structure():
-    """The verifier must return one prediction per evidence item."""
+    """DeBERTa should return valid predictions and confidence scores."""
     evidence = [
         "Telemundo is an American Spanish-language television network.",
         "Telemundo is an American English-language television network.",
@@ -70,7 +67,7 @@ def test_nli_returns_expected_structure():
 
 
 def test_nli_supports_and_refutes():
-    """Known opposing evidence should yield opposing NLI labels."""
+    """Known opposing evidence should produce opposing NLI labels."""
     evidence = [
         "Telemundo is an American Spanish-language television network.",
         "Telemundo is an American English-language television network.",
