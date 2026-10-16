@@ -7,7 +7,6 @@ import re
 from pathlib import Path
 import joblib
 import pandas as pd
-import re
 from scipy.sparse import hstack
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -119,6 +118,7 @@ def main():
     pred, conf = _predict_df(model, test)
     out = pd.DataFrame({"claim_id": test.index, "predicted_label": pred,
                         "confidence": conf, "gold_label": test.label.values})
+    PREDICTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(PREDICTIONS_PATH, index=False)
     joblib.dump(model, MODEL_PATH)
     _model = model

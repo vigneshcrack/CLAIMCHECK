@@ -2,6 +2,7 @@ import argparse
 import os
 import glob
 import sys
+from pathlib import Path
  
 import pandas as pd
  
@@ -14,7 +15,7 @@ for p in ROOT.glob("*/retrieval.py"):
 
 
 from nli_model import verify_batch
-from retrieval import retrieve_with_scores
+from lane2_retrieval_traditional.retrieval import retrieve_with_scores
 from scripts import evaluation as ev
 
 DATA = ROOT / "lane1_data_eval" / "data" / "processed" / "claimcheck_dataset.csv"
@@ -95,7 +96,8 @@ if __name__ == "__main__":
  
     kwargs = {"method": a.method} if a.method else {}
     res = run_tiers(df, sep=a.sep, **kwargs)
-    res.to_csv("results/predictions_nli_tiers.csv", index=False)
+    (HERE / "results").mkdir(exist_ok=True)
+    res.to_csv(HERE / "results/predictions_nli_tiers.csv", index=False)
  
-    summarise(res, df).to_csv("results/ablation_summary.csv", index=False)
+    summarise(res, df).to_csv(HERE / "results/ablation_summary.csv", index=False)
     print("\nsaved predictions_nli_tiers.csv and ablation_summary.csv")

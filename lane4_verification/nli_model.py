@@ -26,6 +26,7 @@ NLI_TO_FEVER = {
 }
  
 NEI = "NOT ENOUGH INFO"
+EVIDENCE_SEP = " "  # Original top-k concatenation convention
 
 # Text cleaning: removing bracket escape codes left over from FEVER dataset tokenization.
 
@@ -71,7 +72,10 @@ def _load():
 
 @torch.no_grad()
 def verify_batch(claims, evidences, batch_size=32):
-    _load()
+    if len(claims) != len(evidences):
+        raise ValueError("claims and evidences must have the same length")
+    if batch_size < 1:
+        raise ValueError("batch_size must be positive")
     claims = [clean_fever_text(c) for c in claims]
     evidences = [clean_fever_text(e) for e in evidences]
  
@@ -80,10 +84,13 @@ def verify_batch(claims, evidences, batch_size=32):
     todo = []
     for i, e in enumerate(evidences):
         if not e:
-            results[i] = {"label": NEI, "confidence": 1.0}
+            results[i] = {"label": NEI, "confidence": 0.0}  # empty-input fallback, not a model probability
         else:
             todo.append(i)
  
+    if todo:
+        _load()
+
     for start in range(0, len(todo), batch_size):
         idxs = todo[start:start + batch_size]
         enc = _tok(
@@ -107,36 +114,42 @@ def verify(claim: str, evidence: str) -> dict:
 
 # Evidence retrieval and combination into one string for verification
 
-def _import_retrieval():
-    try:
-        from retrieval import retrieve_with_scores
-    except ImportError:
-        for p in Path(__file__).resolve().parent.parent.glob("*/retrieval.py"):
-            sys.path.insert(0, str(p.parent))
-        from retrieval import retrieve_with_scores
+def _import_retrieval(method="bm25"):
+    """Select Lane 2 lexical retrieval explicitly, not a path-dependent module."""
+    if method not in ("bm25", "tfidf"):
+        raise ValueError("This legacy wrapper supports bm25 or tfidf only")
+    root = Path(__file__).resolve().parent.parent
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+    from lane2_retrieval_traditional.retrieval import retrieve_with_scores
     return retrieve_with_scores
 
-def retrieve_evidence(claim: str, k: int = 5, sep: str = EVIDENCE_SEP) -> dict:
-    retrieve_with_scores = _import_retrieval()
-    hits = retrieve_with_scores(claim, k)
+
+def retrieve_evidence(claim: str, k: int = 5, sep: str = EVIDENCE_SEP, method="bm25") -> dict:
+    if k < 1:
+        raise ValueError("k must be positive")
+    retrieve_with_scores = _import_retrieval(method)
+    hits = retrieve_with_scores(claim, k=k, method=method)
     sentences = [clean_fever_text(h[2]) for h in hits]
     return {
         "evidence": sep.join(s for s in sentences if s),
         "evidence_ids": [h[0] for h in hits],
     }
 
-def verify_with_retrieval(claim: str, k: int = 5, sep: str = EVIDENCE_SEP) -> dict:
-    """
-    Retrieve top-k evidence, join it, verify the claim against it.
-    Returns the usual {"label", "confidence"} plus "evidence" and "evidence_ids".
-    """
-    ev = retrieve_evidence(claim, k, sep)
+
+def verify_with_retrieval(claim: str, k: int = 5,
+                          sep: str = EVIDENCE_SEP, method="bm25") -> dict:
+    """EXPERIMENTAL: verify one concatenated top-k evidence string."""
+    ev = retrieve_evidence(claim, k, sep, method)
     return {**verify(claim, ev["evidence"]), **ev}
 
-def verify_with_retrieval_batch(claims, k: int = 5, sep: str = EVIDENCE_SEP) -> list:
-    """Batch version: one retrieval per claim, then one batched NLI pass."""
-    evs = [retrieve_evidence(c, k, sep) for c in claims]
-    preds = verify_batch(list(claims), [e["evidence"] for e in evs])
+
+def verify_with_retrieval_batch(claims, k: int = 5,
+                                sep: str = EVIDENCE_SEP, method="bm25") -> list:
+    """EXPERIMENTAL: concatenated top-k NLI on several claims."""
+    claims = list(claims)
+    evs = [retrieve_evidence(c, k, sep, method) for c in claims]
+    preds = verify_batch(claims, [e["evidence"] for e in evs])
     return [{**p, **e} for p, e in zip(preds, evs)]
 
 if __name__ == "__main__":
