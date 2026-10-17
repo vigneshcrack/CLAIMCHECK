@@ -1,345 +1,238 @@
+"""ClaimCheck Lane 5 — Streamlit interface for evidence-level verification.
+
+Run from the repository root:
+    python -m streamlit run lane5_webapp/app.py
+
+Uses Lane 2 lexical, Lane 3 semantic/reranked retrieval, and Lane 4 DeBERTa NLI.
+Displays Lane 4's evaluated Top-1 aggregation as a model prediction.
+"""
+from __future__ import annotations
 
 import sys
 from pathlib import Path
 
 import streamlit as st
 
-# ==================================================
-# 1. PROJECT SETUP
-# ==================================================
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-# Lane 2: Traditional evidence retrieval
-from lane2_retrieval_traditional.retrieval import (
-    get_index,
-    retrieve_with_scores,
+from lane5_webapp.pipeline import (  # noqa: E402
+    METHOD_LABELS,
+    analyse_claim,
+    claim_level_prediction,
+    explain_label,
+    label_counts,
 )
-
-# Lane 4: Claim verification
-from lane4_verification.nli_model import verify_batch
-
-
-# ==================================================
-# 2. PAGE CONFIGURATION
-# ==================================================
 
 st.set_page_config(
-    page_title="ClaimCheck",
+    page_title="ClaimCheck | Evidence-Based Claim Verification",
     page_icon="🔎",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
+EXAMPLE_CLAIMS = [
+    "Telemundo is a Spanish-language television network.",
+    "Damon Albarn's debut album was released in 2014.",
+]
+
+
+def on_example_change():
+    example = st.session_state.example_choice
+    if example != "Write my own claim":
+        st.session_state.claim_input = example
+
+
+# ------- Page header -------
 st.title("🔎 ClaimCheck")
-st.caption("Evidence-Based Claim Verification")
-
+st.caption("Evidence-based claim verification · Applied Natural Language Processing · Research prototype")
 st.write(
-    "Enter a factual claim. ClaimCheck retrieves relevant "
-    "evidence and uses Natural Language Inference (NLI) "
-    "to analyse how each sentence relates to your claim."
+    "Enter a factual statement to retrieve evidence from a **limited FEVER-Symmetric-derived corpus**. "
+    "ClaimCheck analyses how each retrieved sentence relates to the statement; "
+    "it does not independently establish factual truth."
 )
 
+with st.sidebar:
+    st.header("About ClaimCheck")
+    st.write("**Lane 1:** prepared corpus and offline evaluation")
+    st.write("**Lane 2:** BM25 / TF-IDF retrieval")
+    st.write("**Lane 3:** SBERT + FAISS / Cross-Encoder retrieval")
+    st.write("**Lane 4:** DeBERTa NLI classification")
+    st.write("**Lane 5:** this Streamlit application")
+    st.info("Overall model prediction uses Lane 4’s Top-1 aggregation; it is not a factual truth guarantee.")
+    st.caption("A retrieved evidence ID is not necessarily a link to a published article.")
 
-# ==================================================
-# 3. MODEL AND RETRIEVAL FUNCTIONS
-# ==================================================
+# ------- Inputs -------
+st.subheader("Check a claim")
+if "claim_input" not in st.session_state:
+    st.session_state.claim_input = ""
+if "analysis" not in st.session_state:
+    st.session_state.analysis = None
 
-@st.cache_resource(show_spinner=False)
-def load_retrieval_index():
-    """Load the BM25 index once and reuse it."""
-    return get_index("bm25")
+st.selectbox(
+    "Try a claim from the dataset (optional)",
+    options=["Write my own claim", *EXAMPLE_CLAIMS],
+    key="example_choice",
+    on_change=on_example_change,
+    help="Examples come from claims observed in the team's prepared dataset. "
+         "Retrieved evidence may contain contradictory statements.",
+)
 
-
-
-def retrieve_evidence(claim: str, k: int = 5):
-    """
-    Retrieve evidence with BM25, excluding
-    candidates with no positive relevance score.
-    """
-    load_retrieval_index()
-
-    results = retrieve_with_scores(
-        claim=claim,
-        k=k,
-        method="bm25",
+with st.form("claim_form"):
+    claim = st.text_area(
+        "Factual claim",
+        key="claim_input",
+        height=105,
+        placeholder="Type one factual statement...",
     )
-
-    return [
-        (evidence_id, score, text)
-        for evidence_id, score, text in results
-        if score > 0
-    ]
-
-
-def classify_evidence(claim: str, results: list):
-    """
-    Classify all retrieved evidence sentences.
-
-    Each result from Lane 2:
-        (evidence_id, retrieval_score, evidence_text)
-
-    Lane 4 returns one NLI prediction per sentence.
-    """
-    if not results:
-        return []
-
-    evidence_texts = [
-        evidence_text
-        for _, _, evidence_text in results
-    ]
-
-    claims = [claim] * len(evidence_texts)
-
-    return verify_batch(
-        claims=claims,
-        evidences=evidence_texts,
-        batch_size=8,
-    )
-
-
-# ==================================================
-# 4. USER INPUT
-# ==================================================
-
-st.subheader("Check a Claim")
-
-claim = st.text_area(
-    "Enter your factual claim:",
-    placeholder="e.g. Paris is the capital of Germany.",
-    height=110,
-)
-
-top_k = st.selectbox(
-    "Number of evidence sentences",
-    options=[3, 5, 10],
-    index=1,
-)
+    col_method, col_k = st.columns(2)
+    with col_method:
+        method = st.selectbox(
+            "Retrieval method",
+            options=list(METHOD_LABELS),
+            format_func=lambda m: METHOD_LABELS[m],
+        )
+    with col_k:
+        top_k = st.selectbox("Maximum evidence sentences", [3, 5, 10], index=1)
+    submitted = st.form_submit_button("🔍 Check Claim", type="primary", use_container_width=True)
 
 st.caption(
-    "Current retrieval method: BM25 (Lane 2). "
-    "Semantic retrieval (Lane 3) will be added later."
+    "Lexical, semantic and reranker scores use different scales and cannot be compared directly. "
+    "Retrieval relevance is not factual truth. Modern methods may load additional models on first use."
 )
 
-
-# ==================================================
-# 5. CLAIM VERIFICATION WORKFLOW
-# ==================================================
-
-if st.button("Check Claim", type="primary"):
-
-    if not claim.strip():
-        st.warning("Please enter a factual claim.")
-
+if submitted:
+    clean_claim = claim.strip()
+    st.session_state.analysis = None  # Never retain a previous claim's results after new submission.
+    if not clean_claim:
+        st.warning("Enter a claim before clicking Check Claim.")
+    elif len(clean_claim) > 2000:
+        st.warning("Please enter a shorter claim (up to 2,000 characters).")
     else:
-        claim = claim.strip()
-
         try:
-            # --------------------------------------
-            # STEP A: RETRIEVE EVIDENCE
-            # --------------------------------------
-
-            with st.spinner("Retrieving relevant evidence..."):
-                evidence_results = retrieve_evidence(
-                    claim=claim,
-                    k=top_k,
-                )
-
-            if not evidence_results:
-                st.warning(
-                    "No evidence was found in the available corpus. "
-                    "The claim cannot be assessed."
-                )
-
-            else:
-                # --------------------------------------
-                # STEP B: VERIFY EACH EVIDENCE
-                # --------------------------------------
-
-                with st.spinner(
-                    "Analysing evidence using DeBERTa..."
-                ):
-                    predictions = classify_evidence(
-                        claim,
-                        evidence_results,
-                    )
-
-                if len(predictions) != len(evidence_results):
-                    raise ValueError(
-                        "The number of predictions does not "
-                        "match the number of evidence sentences."
-                    )
-
-                # --------------------------------------
-                # STEP C: DISPLAY RESULTS
-                # --------------------------------------
-
-                st.divider()
-
-                st.subheader("Claim")
-                st.write(claim)
-
-                st.subheader("Evidence Analysis")
-
-                st.success(
-                    f"Analysed {len(predictions)} "
-                    "retrieved evidence sentences."
-                )
-
-                # Count predictions by category
-                counts = {
-                    "SUPPORTS": 0,
-                    "REFUTES": 0,
-                    "NOT ENOUGH INFO": 0,
-                }
-
-                for prediction in predictions:
-                    label = prediction["label"]
-                    if label in counts:
-                        counts[label] += 1
-                
-                # Detect evidence-level disagreement
-                has_support = counts["SUPPORTS"] > 0
-                has_refute = counts["REFUTES"] > 0
-
-                if has_support and has_refute:
-                     st.warning(
-                        "⚠️ Conflicting evidence detected: Some retrieved "
-                        "sentences support the claim, while others contradict it. "
-                        "The system cannot establish which statements are more "
-                        "trustworthy from NLI predictions alone."
-                    )
-
-                elif has_support:
-                    st.info(
-                        "The retrieved evidence includes statements that "
-                        "the model considers supportive of the claim. "
-                        "This is not yet a final claim-level verdict."
-                    )
-
-                elif has_refute:
-                    st.info(
-                        "The retrieved evidence includes statements that "
-                        "the model considers contradictory to the claim. "
-                        "This is not yet a final claim-level verdict."
-                    )
-
-                else:
-                    st.info(
-                        "The retrieved sentences do not provide a clear "
-                        "supporting or contradicting relationship. "
-                        "The claim remains unverified using these results."
-                    )
-
-
-                col1, col2, col3 = st.columns(3)
-
-                col1.metric("Supports", counts["SUPPORTS"])
-                col2.metric("Refutes", counts["REFUTES"])
-                col3.metric(
-                    "Neutral / NEI",
-                    counts["NOT ENOUGH INFO"],
-                )
-
-                st.caption(
-                    "These counts describe how the model "
-                    "classified individual retrieved sentences. "
-                    "They are not votes on the claim's truth."
-                )
-
-                st.divider()
-
-                # --------------------------------------
-                # STEP D: EVIDENCE CARDS
-                # --------------------------------------
-
-                st.subheader("Retrieved Evidence")
-
-                for rank, (result, prediction) in enumerate(
-                    zip(evidence_results, predictions),
-                    start=1,
-                ):
-                    evidence_id, retrieval_score, text = result
-
-                    label = prediction["label"]
-                    confidence = float(prediction["confidence"])
-
-                    with st.expander(f"Evidence {rank} — {prediction['label']}",expanded=(rank == 1),):
-
-                        if label == "SUPPORTS":
-                            st.success("SUPPORTS")
-
-                        elif label == "REFUTES":
-                            st.error("REFUTES")
-
-                        else:
-                            st.warning("NOT ENOUGH INFO")
-
-                        st.write(text)
-
-                        col_a, col_b = st.columns(2)
-
-                        with col_a:
-                            st.metric(
-                                "NLI confidence",
-                                f"{confidence:.1%}",
-                            )
-
-                        with col_b:
-                            st.metric(
-                                "BM25 relevance score",
-                                f"{retrieval_score:.2f}",
-                            )
-
-                        st.caption(
-                            f"Evidence ID: {evidence_id}"
-                        )
-
-                        if label == "SUPPORTS":
-                            st.write(
-                                "**Interpretation:** The model "
-                                "considers this evidence to "
-                                "support the claim."
-                            )
-
-                        elif label == "REFUTES":
-                            st.write(
-                                "**Interpretation:** The model "
-                                "considers this evidence to "
-                                "contradict the claim."
-                            )
-
-                        else:
-                            st.write(
-                                "**Interpretation:** This evidence "
-                                "does not clearly establish or "
-                                "contradict the claim."
-                            )
-
-                # --------------------------------------
-                # STEP E: LIMITATIONS
-                # --------------------------------------
-
-                st.divider()
-
-                st.info(
-                    "ClaimCheck currently reports evidence-level "
-                    "predictions, not an aggregated claim verdict. "
-                    "Results depend on the available evidence "
-                    "corpus and model accuracy."
-                )
-
-                st.caption(
-                    "NLI confidence describes the model's "
-                    "classification confidence for a particular "
-                    "claim-evidence pair. BM25 scores measure "
-                    "lexical relevance, not factual certainty."
-                )
-
+            with st.spinner("Retrieving evidence and running NLI verification..."):
+                results = analyse_claim(clean_claim, method, top_k)
+                verdict = claim_level_prediction(results)
+            st.session_state.analysis = {
+                "claim": clean_claim,
+                "method": method,
+                "top_k": top_k,
+                "results": results,
+                "verdict": verdict,
+            }
         except Exception as error:
-            st.error(
-                "Something went wrong while checking the claim."
+            st.error("Analysis could not be completed. Please check the retrieval index, corpus and model setup.")
+            with st.expander("Technical error details"):
+                st.exception(error)
+
+# ------- Results -------
+analysis = st.session_state.analysis
+if analysis is not None:
+    results = analysis["results"]
+    chosen_method = analysis["method"]
+    st.divider()
+    st.subheader("Analysis results")
+    st.write(f"**Claim:** {analysis['claim']}")
+    st.caption(
+        f"Last run: {METHOD_LABELS[chosen_method]} · Requested top {analysis['top_k']} · "
+        f"Analysed {len(results)} evidence sentence(s)"
+    )
+
+    verdict = analysis["verdict"]
+    st.markdown("#### Overall model prediction")
+    st.write(f"**{verdict['label']}**")
+    if results:
+        st.caption(
+            f"Based on the highest-ranked evidence sentence ({results[0]['evidence_id']}). "
+            "The confidence below is the NLI model's score for that sentence, "
+            "not a probability the claim is factually true."
+        )
+        st.metric("Top-ranked evidence NLI confidence", f"{verdict['confidence']:.1%}")
+    else:
+        st.caption("No evidence was retrieved. The model abstains; this is not a prediction of truth.")
+    st.caption("Aggregation strategy: Top-1 (selected using development data).")
+    if chosen_method == "sbert_rerank":
+        st.caption(
+            "This configuration achieved 38.73% accuracy and 0.278 three-class macro-F1 "
+            "on 346 held-out test claims. It underperformed the majority-class baseline "
+            "and should not be used for consequential fact-checking."
+        )
+    else:
+        st.caption(
+            "This retrieval setting was not the selected held-out test configuration. "
+            "Do not apply the SBERT + Cross-Encoder test accuracy to these results."
+        )
+
+    if not results:
+        st.warning("No usable evidence was returned from the available corpus.")
+        st.info("This does not mean the claim is false. The required evidence may be missing.")
+    else:
+        counts = label_counts(results)
+        supporting, refuting = counts["SUPPORTS"], counts["REFUTES"]
+
+        if supporting and refuting:
+            st.warning(
+                "**Conflicting evidence relationships detected.** Some retrieved sentences support "
+                "the claim and others contradict it. This does not establish which sentences are trustworthy."
             )
-            st.exception(error)
+        elif supporting:
+            st.info("Some retrieved sentences support the claim. Other evidence may disagree with the Top-1 model prediction.")
+        elif refuting:
+            st.info("Some retrieved sentences contradict the claim. Other evidence may disagree with the Top-1 model prediction.")
+        else:
+            st.info("No retrieved sentence was classified as supporting or refuting the claim.")
+
+        cols = st.columns(3)
+        cols[0].metric("Supports", counts["SUPPORTS"])
+        cols[1].metric("Refutes", counts["REFUTES"])
+        cols[2].metric("Neutral / NEI", counts["NOT ENOUGH INFO"])
+        st.caption("Counts are per-sentence relationships, **not votes on factual truth**.")
+
+        evidence_tab, technical_tab = st.tabs(["Evidence", "Technical details"])
+        with evidence_tab:
+            st.markdown("#### Retrieved sentences")
+            st.caption("Ranked by the selected retrieval method. Expand each item to inspect its text and interpretation.")
+            for rank, item in enumerate(results, start=1):
+                with st.expander(f"#{rank} · {item['label']} · {item['evidence_id']}", expanded=(rank == 1)):
+                    st.write(item["text"])
+                    st.write(f"**Interpretation:** {explain_label(item['label'])}")
+                    st.caption(
+                        f"NLI classification confidence: {item['confidence']:.1%} · "
+                        f"{'Cosine similarity' if chosen_method == 'sbert' else 'Cross-Encoder relevance' if chosen_method.endswith('_rerank') else chosen_method.upper() + ' score'}: {item['retrieval_score']:.4f}"
+                    )
+                    st.caption(
+                        f"Evidence ID: {item['evidence_id']} · "
+                        "Source: team's FEVER-Symmetric-derived evidence corpus"
+                    )
+        with technical_tab:
+            st.markdown("#### Pipeline")
+            st.code(f"Claim → {chosen_method.upper()} → top-{analysis['top_k']} evidence → DeBERTa NLI → Top-1 model prediction + evidence labels")
+            table_rows = [
+                {
+                    "Rank": rank,
+                    "Evidence ID": item["evidence_id"],
+                    "Relationship": item["label"],
+                    "NLI confidence": round(item["confidence"], 4),
+                    f"{'Cosine similarity' if chosen_method == 'sbert' else 'Cross-Encoder relevance' if chosen_method.endswith('_rerank') else chosen_method.upper() + ' score'}": round(item["retrieval_score"], 4),
+                }
+                for rank, item in enumerate(results, start=1)
+            ]
+            st.dataframe(table_rows, hide_index=True, use_container_width=True)
+            st.caption(
+                "The retrieval score measures relevance to the query, not correctness. "
+                "NLI confidence is not a calibrated probability that a claim is true."
+            )
+
+    with st.expander("Scope and limitations", expanded=False):
+        st.markdown(
+            """
+            - **Corpus coverage:** the system searches a small FEVER-Symmetric-derived corpus, not the live internet.
+            - **Lexical retrieval safeguard:** BM25/TF-IDF hide non-positive scores; this is not a validated sufficiency threshold. Semantic and reranked results are not filtered this way.
+            - **Evidence reliability:** the corpus includes intentionally contrasting evidence statements for research.
+            - **NLI interpretation:** SUPPORTS / REFUTES / NOT ENOUGH INFO describe a claim–sentence relationship.
+            - **Claim-level prediction:** uses the top-ranked evidence NLI label, following Lane 4’s evaluated Top-1 method. It is not a reliable determination of factual truth.
+            - **Provenance:** internal evidence IDs do not by themselves establish a public source URL.
+            """
+        )
+    st.caption("ClaimCheck is an educational research prototype. Independently verify consequential claims.")
