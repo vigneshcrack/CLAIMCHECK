@@ -1,0 +1,3 @@
+strategy,method,split,n,top_k,accuracy,macro_f1_3class,macro_f1_supports_refutes,nei_predictions
+top1,sbert_rerank,dev,354,5,0.4293785310734463,0.30086900547151596,0.45130350820727394,79
+conflict_abstain,sbert_rerank,dev,354,5,0.2175141242937853,0.20356804878903648,0.30535207318355473,225

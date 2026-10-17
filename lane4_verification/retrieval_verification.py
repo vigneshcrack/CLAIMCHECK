@@ -19,6 +19,9 @@ def retrieve_ranked_evidence(claim: str, *, method: str = 'bm25', k: int = 5) ->
         raise ValueError('k must be a positive integer')
 
     if method in ('bm25', 'tfidf'):
+        import sys
+        import lane2_retrieval_traditional.retrieval as _lane2
+        sys.modules.setdefault('retrieval', _lane2)      # lets Lane 2's pickled index resolve its classes
         from lane2_retrieval_traditional.retrieval import retrieve_with_scores
         hits = retrieve_with_scores(claim, k=k, method=method)
         rows = [(eid, score, text, None) for eid, score, text in hits]

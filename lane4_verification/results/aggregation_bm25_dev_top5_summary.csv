@@ -1,0 +1,3 @@
+strategy,method,split,n,top_k,accuracy,macro_f1_3class,macro_f1_supports_refutes,nei_predictions
+top1,bm25,dev,354,5,0.4152542372881356,0.307068040166205,0.4606020602493075,91
+conflict_abstain,bm25,dev,354,5,0.22033898305084745,0.20400696864111498,0.30601045296167245,223
